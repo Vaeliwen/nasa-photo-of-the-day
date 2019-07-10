@@ -1,28 +1,28 @@
 import React, { useState, useEffect } from "react";
-import ReactDOM from 'react-dom';
+import axios from 'axios';
 import "./App.css";
+import { PhotoOfTheDay } from "./components/Photo";
 
 function App() {
-  const [data, setData] = useState()
-
-  const fetchSpace = () => {
-    fetch(`https://api.nasa.gov/planetary/apod?api_key=5b0JU9caOsvt0R1kREtfXxgEyWnGhPCwWaINsFtt&date=2012-03-14`)
-      .then(res => res.json())
-      .then(res => console.log(res.hdurl))
-      .catch(err => console.log('Houston, we have a problem.'))
-  }
-
+  const [data, setData] = useState({})
 
   useEffect(() => {
-    fetchSpace()
+    axios
+      .get(`https://api.nasa.gov/planetary/apod?api_key=5b0JU9caOsvt0R1kREtfXxgEyWnGhPCwWaINsFtt&date=2012-03-14`)
+      .then(res => {
+        setData(res.data)
+      })
+      .catch(err => console.log('Houston, we have a problem.'))
   }, [])
+
+  console.log(data)
 
   return (
     <div className="App">
-      <p>
-        Read through the instructions in the README.md file to build your NASA
-        app! Have fun 🚀!
-      </p>
+      <h1>{data.date}</h1>
+      <h2>{data.title}</h2>
+      <PhotoOfTheDay hdurl={data.hdurl} />
+      <p>{data.explanation}</p>
     </div>
   );
 }
