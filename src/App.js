@@ -2,6 +2,9 @@ import React, { useState, useEffect } from "react";
 import axios from 'axios';
 import "./App.css";
 import { PhotoOfTheDay } from "./components/Photo";
+import { Date } from './components/Date'
+import { Title } from './components/Title'
+import { Info } from './components/Info'
 
 function App() {
   const [data, setData] = useState({})
@@ -19,10 +22,10 @@ function App() {
 
   return (
     <div className="App">
-      <h1>{data.date}</h1>
-      <h2>{data.title}</h2>
+      <Date date={data.date} />
+      <Title title={data.title} />
       <PhotoOfTheDay hdurl={data.hdurl} />
-      <p>{data.explanation}</p>
+      <Info info={data.explanation} />
     </div>
   );
 }
