@@ -1,7 +1,8 @@
 import React from 'react';
+import { Image } from 'semantic-ui-react'
 
 export const PhotoOfTheDay = (props) => {
     return(
-            <img src={props.hdurl}></img>
+            <Image src={props.hdurl} />
     )
 }

@@ -2,10 +2,8 @@ import React, { useState, useEffect } from "react";
 import axios from 'axios';
 import "./App.css";
 import { PhotoOfTheDay } from "./components/Photo";
-import { Date } from './components/Date'
-import { Title } from './components/Title'
+import { DoubleHeader } from './components/Header'
 import { Info } from './components/Info'
-import { Grid, Form, Input, TextArea, Button, Select } from "semantic-ui-react";
 
 
 function App() {
@@ -23,8 +21,7 @@ function App() {
 
   return (
     <div className="App">
-      <Date date={data.date} />
-      <Title title={data.title} />
+      <DoubleHeader date={data.date} title={data.title} />
       <PhotoOfTheDay hdurl={data.hdurl} />
       <Info info={data.explanation} />
     </div>
