@@ -5,6 +5,8 @@ import { PhotoOfTheDay } from "./components/Photo";
 import { Date } from './components/Date'
 import { Title } from './components/Title'
 import { Info } from './components/Info'
+import { Grid, Form, Input, TextArea, Button, Select } from "semantic-ui-react";
+
 
 function App() {
   const [data, setData] = useState({})
@@ -18,7 +20,6 @@ function App() {
       .catch(err => console.log('Houston, we have a problem.'))
   }, [])
 
-  console.log(data)
 
   return (
     <div className="App">
