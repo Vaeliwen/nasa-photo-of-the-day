@@ -1,7 +1,10 @@
 import React from 'react';
+import { Container } from 'semantic-ui-react'
 
 export const Info = (props) => {
     return(
-        <p>{props.info}</p>
+        <Container textAlign='center' text>
+            <p>{props.info}</p>
+        </Container>
     )
 }
